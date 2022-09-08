@@ -33,6 +33,7 @@ function create_QR($path, $filename, $data) {
 function gen($path, $gen_amount) 
 {
     $data = data_provider($gen_amount);
+    file_put_contents($path."/hashset", json_encode($data), LOCK_EX);
 
     for($i = 0; $i < count($data); $i++)
     {
